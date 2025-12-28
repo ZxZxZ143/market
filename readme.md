@@ -1,5 +1,7 @@
+postman collection - https://yevgeniikurlykov.postman.co/workspace/05afd32d-6a65-4f53-bb4a-1be9a2931d42
 
-# Session — Spring Boot E-Commerce API
+
+# My project — Spring Boot E-Commerce API
 
 ## Project Overview
 
