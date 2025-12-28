@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="add-second-user-admin" author="admin">
+        <insert tableName="users">
+            <column name="email" value="admin1@mail.com"/>
+            <column name="password_hash"
+                    value="$2a$12$juQH9ywRdnDj1giXuTtle.K3EB2sna5C0xkV6/fpz42IbJECT4ggu"/>
+            <column name="full_name" value="System Administrator"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="role_id" valueNumeric="1"/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

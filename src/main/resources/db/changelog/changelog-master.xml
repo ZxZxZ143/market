@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <include file="create-roles-table.xml" relativeToChangelogFile="true" />
+    <include file="create-user-table.xml" relativeToChangelogFile="true" />
+    <include file="create-user-role-table.xml" relativeToChangelogFile="true" />
+    <include file="create-category-table.xml" relativeToChangelogFile="true" />
+    <include file="create-products.xml" relativeToChangelogFile="true" />
+    <include file="create-inventory.xml" relativeToChangelogFile="true" />
+    <include file="create-cart.xml" relativeToChangelogFile="true" />
+    <include file="create-item.xml" relativeToChangelogFile="true" />
+    <include file="create-order.xml" relativeToChangelogFile="true" />
+    <include file="create-order-item-table.xml" relativeToChangelogFile="true" />
+    <include file="insert-role-values.xml" relativeToChangelogFile="true" />
+
+    <include file="add-role-id-column-to-user.xml" relativeToChangelogFile="true" />
+
+    <include file="drop-user-role-table.xml" relativeToChangelogFile="true" />
+
+    <include file="add-admin-user.xml" relativeToChangelogFile="true" />
+    <include file="add-second-user-admin.xml" relativeToChangelogFile="true" />
+
+
+</databaseChangeLog>

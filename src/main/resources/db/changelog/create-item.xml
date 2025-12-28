@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="create_item" author="admin">
+        <createTable tableName="cart_items">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="cart_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="product_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="quantity" type="integer">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="price_snapshot" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                constraintName="fk_cart_items_cart"
+                baseTableName="cart_items"
+                baseColumnNames="cart_id"
+                referencedTableName="carts"
+                referencedColumnNames="id"
+                onDelete="CASCADE"
+        />
+
+        <addForeignKeyConstraint
+                constraintName="fk_cart_items_product"
+                baseTableName="cart_items"
+                baseColumnNames="product_id"
+                referencedTableName="products"
+                referencedColumnNames="id"
+                onDelete="RESTRICT"
+        />
+    </changeSet>
+</databaseChangeLog>

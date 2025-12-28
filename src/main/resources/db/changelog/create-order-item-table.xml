@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="create-order-item-table" author="admin">
+        <createTable tableName="order_items">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="order_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="product_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="seller_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="quantity" type="integer">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="price_snapshot" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                constraintName="fk_order_items_order"
+                baseTableName="order_items"
+                baseColumnNames="order_id"
+                referencedTableName="orders"
+                referencedColumnNames="id"
+                onDelete="CASCADE"
+        />
+
+        <addForeignKeyConstraint
+                constraintName="fk_order_items_product"
+                baseTableName="order_items"
+                baseColumnNames="product_id"
+                referencedTableName="products"
+                referencedColumnNames="id"
+                onDelete="RESTRICT"
+        />
+
+        <addForeignKeyConstraint
+                constraintName="fk_order_items_seller"
+                baseTableName="order_items"
+                baseColumnNames="seller_id"
+                referencedTableName="users"
+                referencedColumnNames="id"
+                onDelete="RESTRICT"
+        />
+    </changeSet>
+</databaseChangeLog>
