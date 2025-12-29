@@ -30,15 +30,15 @@ public class CartService {
 
     @Transactional
     public Cart getOrCreateMyCart(UserServiceImpl principal) {
-        Integer buyerId = principal.getUser().getId();
-        return cartRepository.findByBuyer_Id(buyerId).orElseGet(() -> {
-            Cart c = new Cart();
-            c.setBuyer(principal.getUser());
-            Instant now = Instant.now();
-            c.setCreatedAt(now);
-            c.setUpdatedAt(now);
-            return cartRepository.save(c);
-        });
+        return cartRepository.findByBuyer_Id(principal.getUser().getId())
+                .orElseGet(() -> {
+                    Cart c = new Cart();
+                    c.setBuyer(principal.getUser());
+                    Instant now = Instant.now();
+                    c.setCreatedAt(now);
+                    c.setUpdatedAt(now);
+                    return cartRepository.save(c);
+                });
     }
 
     @Transactional()
@@ -49,7 +49,7 @@ public class CartService {
                     c.setBuyer(principal.getUser());
                     c.setCreatedAt(Instant.now());
                     c.setUpdatedAt(Instant.now());
-                    return c;
+                    return cartRepository.save(c);
                 });
     }
 

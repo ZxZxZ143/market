@@ -1,12 +1,12 @@
 package org.example.session.data.dtos.response;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
 
-@Getter
-@Setter
+@Data
 public class CategoryResDto {
     private Integer id;
     private String name;

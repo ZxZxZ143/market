@@ -1,5 +1,4 @@
 services:
-  # основная база данных для работы приложения
   main-db:
     image: 'postgres'
     container_name: 'm-database-container'
@@ -10,7 +9,6 @@ services:
     ports:
       - "2347:5432"
 
-  # база данных для тестирования
   test-db:
     image: 'postgres'
     container_name: 't-database-container'

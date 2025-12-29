@@ -1,10 +1,10 @@
 package org.example.session.data.dtos.response.product;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class ProductResDto {
     private Long id;
 

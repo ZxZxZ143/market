@@ -1,11 +1,11 @@
 package org.example.session.data.dtos.request.product;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class ProductUpdateDto {
     private Integer categoryId;
     private String title;
